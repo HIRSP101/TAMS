@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Telegram Message Scheduler</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url("/assets/landscape1.png");
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+        }
+
+        .container-cover {
+            background: rgba(14, 54, 80, 0.4);
+            border-radius: 16px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(6.7px);
+            border: 1px solid rgba(54, 116, 156, 0.53);
+        }
+
+        .light-gray-transparent {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 16px;
+            box-shadow: 0 8px 40px rgba(21, 13, 13, 0.388);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(54, 116, 156, 0.53);
+            border-radius: 12px;
+        }
+
+        .container {
+            margin-top: 100px;
+        }
+
+        .card-title {
+            font-size: 48px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mb-5 d-flex justify-content-center ">
+        <div class="card px-1 py-4 container-cover">
+            <div class="card-body">
+                <h1 class="card-title mb-3 text-light text-center fw-bolder">TMS</h1>
+                <h4 class="fw-bold text-light text-center">Telegram Message Scheduler</h4>
+                 <form asp-action="SaveBotToken" method="post">
+                <div class="input-group flex-nowrap my-3">
+                    <span class="input-group-text" id="addon-wrapping"><svg xmlns="http://www.w3.org/2000/svg" x="0px"
+                            y="0px" width="16" height="16" viewBox="0 0 24 24">
+                            <path
+                                d="M 7 5 C 3.134 5 0 8.134 0 12 C 0 15.866 3.134 19 7 19 C 10.170669 19 12.846171 16.890989 13.707031 14 L 18 14 L 18 17 L 22 17 L 22 14 L 24 14 L 24 10 L 13.707031 10 C 12.846171 7.1090112 10.170669 5 7 5 z M 7 9 C 8.657 9 10 10.343 10 12 C 10 13.657 8.657 15 7 15 C 5.343 15 4 13.657 4 12 C 4 10.343 5.343 9 7 9 z">
+                            </path>
+                        </svg></span>
+                    <input type="text" class="form-control" placeholder="Bot Api key" aria-label="Bot Api key" name="botToken"
+                        aria-describedby="addon-wrapping">
+                    <button class="btn btn-warning" type="button" id="checkbotstatus">
+                        <?xml version="1.0" encoding="utf-8"?>
+                        <svg width="18px" height="28px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
+                            fill="none"><g fill="#000000"><path d="M1.5 8a6.5 6.5 0 016.744-6.496.75.75 0 10.055-1.499 8 8 0 107.036 11.193.75.75 0 00-1.375-.6 6.722 6.722 0 01-.22.453A6.5 6.5 0 011.5 8zM11.74.926a.75.75 0 10-.703 1.326c.144.076.284.157.421.243a.75.75 0 00.8-1.27 7.995 7.995 0 00-.519-.299zM14.774 3.743a.75.75 0 00-1.27.799c.087.137.168.277.244.42a.75.75 0 001.326-.701 8.04 8.04 0 00-.3-.518zM15.995 7.7a.75.75 0 00-1.5.056 6.583 6.583 0 01.002.45.75.75 0 101.5.047 8.158 8.158 0 00-.002-.552z" />
+                                <path
+                                    d="M11.78 5.22a.75.75 0 010 1.06l-4.5 4.5a.75.75 0 01-1.06 0l-2-2a.75.75 0 011.06-1.06l1.47 1.47 3.97-3.97a.75.75 0 011.06 0z" />
+                            </g>
+                        </svg>
+                    </button>
+                </div>
+                <div class="my-3">
+                    <button class="btn btn-success btn-block fw-bold">Continue</button>
+                    <button type="submit" class="btn btn-primary btn-block fw-bold">Save & Continue</button>
+                </div>
+                </form>
+                <div id="response-section" >
+                    <p class="text-light">Output</p>
+                    <div class="d-flex flex-row light-gray-transparent mb-3 py-1 px-1 visually-hidden" id="bot-information">
+                        <div style="width: 25%; margin-top: 2px;">
+                            <img class="bg-light rounded-circle" style="width: 64px; height: 64px;" src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" />
+                        </div>
+                    <div class=" text-light" style="width: auto; margin-top: 10px;">
+                        <h6>Username: <span id="botUsername">Bot Username Here</span></h6>
+                        <h6>Name: <span id="botName">Bot Name Here</span></h6>
+                    </div>
+                    </div>
+                    <div class="input-group" id="output-terminal">
+                        <span class="input-group-text">
+                            <?xml version="1.0" encoding="utf-8"?>
+                            <svg width="28px" height="28px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
+                                version="1.1" fill="none" stroke="#000000" stroke-linecap="round"
+                                stroke-linejoin="round" stroke-width="1.5">
+                                <rect height="10.5" width="12.5" y="2.75" x="1.75" />
+                                <path d="m8.75 10.25h2.5m-6.5-4.5 2.5 2.25-2.5 2.25" />
+                            </svg>
+                        </span>
+                        <textarea class="form-control bg-dark text-success" aria-label="With textarea"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    document.getElementById('checkbotstatus').addEventListener('click', async () => {
+        const apiKeyInput = document.querySelector('input[placeholder="Bot Api key"]');
+        const apiKey = apiKeyInput.value.trim();
+
+        try {
+            const response = await fetch('/TelegramBotSetup/VerifyBotApiKey', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `apiKey=${encodeURIComponent(apiKey)}`
+            });
+            console.log(encodeURIComponent(apiKey));
+            const result = await response.json();
+            console.log(response.ok);
+            if (response.ok) {
+                $("#bot-information").removeClass("visually-hidden");
+                
+                document.querySelector('#bot-information img').src = result.profilePictureUrl || 'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png';
+                document.querySelector('#bot-information #botUsername').textContent = result.username;
+                document.querySelector('#bot-information #botName').textContent = result.name;
+                
+                document.querySelector('#output-terminal textarea').value = 'Bot verified successfully!';
+            } else {
+                $("#bot-information").addClass("visually-hidden");
+                document.querySelector('#output-terminal textarea').value = result.message;
+            }
+        } catch (error) {
+            document.querySelector('#output-terminal textarea').value = 'An error occurred: ' + error.message;
+        }
+    });
+
+    /*
+    document.querySelector('.btn-success').addEventListener('click', () => {
+    });
+    */
+    /*
+    document.querySelector('.btn-primary').addEventListener('click', async () => {
+        const apiKeyInput = document.querySelector('input[placeholder="Bot Api key"]');
+        const apiKey = apiKeyInput.value.trim();
+
+        try {
+            const response = await fetch('/TelegramBotSetup/SaveBotApiKey', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `apiKey=${encodeURIComponent(apiKey)}`
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                document.querySelector('#output-terminal textarea').value = 'Bot API key saved successfully!';
+            } else {
+                document.querySelector('#output-terminal textarea').value = result.message;
+            }
+        } catch (error) {
+            document.querySelector('#output-terminal textarea').value = 'An error occurred: ' + error.message;
+        }
+    });
+    */
+</script>

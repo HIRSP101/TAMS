@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebApplication1</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WebApplication1.styles.css" asp-append-version="true" />
+    <style>
+        .light-gray-transparent {
+            background: rgba(219, 219, 219, 0.4);
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(21, 13, 13, 0.388);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(4px);
+            border: 1px solid rgba(54, 116, 156, 0.53);
+            border-radius: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="light-gray-transparent mt-3 mx-5 sticky-top">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm box-shadow">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <h1 class="fw-bolder">TMS</h1>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-flex justify-content-between mx-3">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link bg-primary rounded text-white px-1 py-0" asp-area=""
+                                asp-controller="Home" asp-action="Index">
+                                <svg height="38px" width="26px" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M21.4498 10.275L11.9998 3.1875L2.5498 10.275L2.9998 11.625H3.7498V20.25H20.2498V11.625H20.9998L21.4498 10.275ZM5.2498 18.75V10.125L11.9998 5.0625L18.7498 10.125V18.75H14.9999V14.3333L14.2499 13.5833H9.74988L8.99988 14.3333V18.75H5.2498ZM10.4999 18.75H13.4999V15.0833H10.4999V18.75Z"
+                                            fill="#ffffff"></path>
+                                    </g>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a class="nav-link text-dark bg-primary rounded text-white px-1 py-0 " asp-area=""
+                                asp-controller="DirectMessage" asp-action="Index">
+                                <svg height="38px" width="26px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path
+                                            d="M22 2L2 8.66667L11.5833 12.4167M22 2L15.3333 22L11.5833 12.4167M22 2L11.5833 12.4167"
+                                            stroke="#ffffff" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round"></path>
+                                    </g>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark bg-primary rounded text-white px-1 py-0" asp-area=""
+                                asp-controller="Scheduler" asp-action="Index">
+                                <svg fill="#ffffff" height="38px" width="26px" version="1.1" id="Capa_1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    viewBox="0 0 470 470" xml:space="preserve">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <g>
+                                            <path
+                                                d="M412.25,400.001H93.75c-0.25,0-0.499,0.013-0.747,0.038c-0.197,0.02-0.39,0.052-0.583,0.087 c-0.048,0.009-0.098,0.012-0.146,0.022c-0.238,0.047-0.471,0.107-0.7,0.176c-0.271,0.082-0.525,0.174-0.771,0.28l-47.937,19.972 c-2.795,1.165-4.616,3.896-4.616,6.923c0,3.028,1.82,5.759,4.615,6.923l47.933,19.974c0.469,0.201,0.963,0.356,1.476,0.458 c0.046,0.009,0.094,0.013,0.14,0.021c0.194,0.035,0.389,0.068,0.588,0.088c0.248,0.025,0.497,0.038,0.747,0.038h318.5 c10.752,0,19.5-8.749,19.5-19.502v-16C431.75,408.748,423.002,400.001,412.25,400.001z M101.25,415.001h252.5v25h-252.5V415.001z M368.75,415.001h15v25h-15V415.001z M86.25,418.75v17.5l-21-8.751L86.25,418.75z M416.75,435.499c0,2.44-2.061,4.502-4.5,4.502 h-13.5v-25h13.5c2.439,0,4.5,2.06,4.5,4.498V435.499z">
+                                            </path>
+                                            <path
+                                                d="M468.733,281.669c0.032-0.047,0.058-0.097,0.088-0.145c0.101-0.159,0.201-0.319,0.291-0.486 c0.02-0.036,0.035-0.075,0.054-0.112c0.093-0.181,0.183-0.364,0.261-0.552c0.011-0.027,0.019-0.054,0.03-0.081 c0.08-0.199,0.155-0.401,0.218-0.608c0.009-0.03,0.015-0.061,0.023-0.091c0.059-0.203,0.113-0.409,0.155-0.619 c0.013-0.063,0.018-0.128,0.029-0.191c0.031-0.177,0.062-0.355,0.08-0.537C469.987,278,470,277.75,470,277.499v-255 c0-4.142-3.358-7.5-7.5-7.5H7.5c-4.142,0-7.5,3.358-7.5,7.5v345c0,4.142,3.358,7.5,7.5,7.5h365c0.251,0,0.501-0.013,0.749-0.038 c0.182-0.018,0.359-0.049,0.537-0.08c0.063-0.011,0.128-0.016,0.191-0.029c0.21-0.042,0.416-0.096,0.619-0.156 c0.03-0.009,0.061-0.014,0.091-0.023c0.207-0.063,0.409-0.138,0.608-0.218c0.027-0.011,0.055-0.019,0.081-0.03 c0.189-0.078,0.372-0.168,0.552-0.261c0.037-0.019,0.075-0.034,0.112-0.054c0.167-0.09,0.327-0.189,0.486-0.291 c0.048-0.031,0.098-0.057,0.145-0.088c0.151-0.101,0.295-0.212,0.438-0.324c0.05-0.039,0.102-0.073,0.151-0.113 c0.189-0.156,0.371-0.32,0.545-0.493l89.997-89.998c0.173-0.173,0.338-0.355,0.493-0.545c0.04-0.049,0.074-0.101,0.113-0.151 C468.52,281.964,468.632,281.821,468.733,281.669z M15,29.999h440v240h-82.5c-4.142,0-7.5,3.358-7.5,7.5v82.5H15V29.999z M444.394,284.999L380,349.393v-64.394H444.394z">
+                                            </path>
+                                            <path
+                                                d="M342.5,319.999H305V134.215h110v113.284c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5v-185c0-4.142-3.358-7.5-7.5-7.5h-315 c-4.142,0-7.5,3.358-7.5,7.5s3.358,7.5,7.5,7.5H415v49.216H55V69.999h22.5c4.142,0,7.5-3.358,7.5-7.5s-3.358-7.5-7.5-7.5h-30 c-4.142,0-7.5,3.358-7.5,7.5v265c0,4.142,3.358,7.5,7.5,7.5h295c4.142,0,7.5-3.358,7.5-7.5S346.642,319.999,342.5,319.999z M290,319.999H180V134.215h110V319.999z M55,134.215h110v185.784H55V134.215z">
+                                            </path>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </a>
+                        </li>
+                        
+                    </ul>
+                    <ul class="navbar-nav flex-grow-1 justify-content-end">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark bg-danger rounded text-white px-1 rounded-circle" asp-area=""
+                                asp-controller="Initialize" asp-action="Index">
+                                <svg width="36px" height="26px" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path
+                                            d="M7 9.5L12 14.5M12 9.5L7 14.5M19.4922 13.9546L16.5608 17.7546C16.2082 18.2115 16.032 18.44 15.8107 18.6047C15.6146 18.7505 15.3935 18.8592 15.1583 18.9253C14.8928 19 14.6042 19 14.0271 19H6.2C5.07989 19 4.51984 19 4.09202 18.782C3.71569 18.5903 3.40973 18.2843 3.21799 17.908C3 17.4802 3 16.9201 3 15.8V8.2C3 7.0799 3 6.51984 3.21799 6.09202C3.40973 5.71569 3.71569 5.40973 4.09202 5.21799C4.51984 5 5.07989 5 6.2 5H14.0271C14.6042 5 14.8928 5 15.1583 5.07467C15.3935 5.14081 15.6146 5.2495 15.8107 5.39534C16.032 5.55998 16.2082 5.78846 16.5608 6.24543L19.4922 10.0454C20.0318 10.7449 20.3016 11.0947 20.4054 11.4804C20.4969 11.8207 20.4969 12.1793 20.4054 12.5196C20.3016 12.9053 20.0318 13.2551 19.4922 13.9546Z"
+                                            stroke="#ffffff" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round"></path>
+                                    </g>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>
